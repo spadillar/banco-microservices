@@ -1,0 +1,59 @@
+server:
+  port: 8088
+  tomcat:
+    threads:
+      max: 200
+    max-connections: 10000
+    accept-count: 100
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+
+spring:
+  application:
+    name: cuenta-service
+  cloud:
+    function:
+      definition: clienteCreatedConsumer;clienteUpdatedConsumer
+    stream:
+      bindings:
+        clienteCreatedConsumer-in-0:
+          destination: cliente-created
+          content-type: application/json
+          group: cuenta-service-group
+        clienteUpdatedConsumer-in-0:
+          destination: cliente-updated
+          content-type: application/json
+          group: cuenta-service-group
+        movimiento-created-out-0:
+          destination: movimiento-created
+          content-type: application/json
+      binders:
+        rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: "${spring.rabbitmq.host}"
+                port: "${spring.rabbitmq.port}"
+                username: "${spring.rabbitmq.username}"
+                password: "${spring.rabbitmq.password}"
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  datasource:
+    url: jdbc:postgresql://localhost:5432/banco_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect

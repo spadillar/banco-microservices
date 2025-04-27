@@ -1,0 +1,294 @@
+{
+    "info": {
+        "name": "Banco API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Clientes",
+            "item": [
+                {
+                    "name": "Crear Cliente",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nombre\": \"Jose Lema\",\n    \"genero\": \"M\",\n    \"edad\": 35,\n    \"identificacion\": \"12345\",\n    \"direccion\": \"Otavalo sn y principal\",\n    \"telefono\": \"098254785\",\n    \"clienteId\": \"JL001\",\n    \"contrasena\": \"1234\",\n    \"estado\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8087/clientes",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8087",
+                            "path": ["clientes"]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Cliente por ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8087/clientes/{{id}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8087",
+                            "path": ["clientes", "{{id}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Todos los Clientes",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8087/clientes",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8087",
+                            "path": ["clientes"]
+                        }
+                    }
+                },
+                {
+                    "name": "Actualizar Cliente",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nombre\": \"Nuevo Nombre\",\n    \"genero\": \"M\",\n    \"edad\": 36,\n    \"identificacion\": \"12345\",\n    \"direccion\": \"Nueva Direccion\",\n    \"telefono\": \"098254786\",\n    \"clienteId\": \"JL001\",\n    \"contrasena\": \"1234\",\n    \"estado\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8087/clientes/{{id}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8087",
+                            "path": ["clientes", "{{id}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Eliminar Cliente",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8087/clientes/{{id}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8087",
+                            "path": ["clientes", "{{id}}"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Cuentas",
+            "item": [
+                {
+                    "name": "Crear Cuenta",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"numeroCuenta\": \"478758\",\n    \"tipoCuenta\": \"Ahorro\",\n    \"saldoInicial\": 2000,\n    \"estado\": true,\n    \"clienteId\": \"JL001\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8088/cuentas",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8088",
+                            "path": ["cuentas"]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Cuenta por Número",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8088/cuentas/{{numeroCuenta}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8088",
+                            "path": ["cuentas", "{{numeroCuenta}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Cuentas por Cliente ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8088/cuentas/cliente/{{clienteId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8088",
+                            "path": ["cuentas", "cliente", "{{clienteId}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Actualizar Cuenta",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"tipoCuenta\": \"Ahorro\",\n    \"saldoInicial\": 2500,\n    \"estado\": true,\n    \"clienteId\": \"JL001\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8088/cuentas/{{numeroCuenta}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8088",
+                            "path": ["cuentas", "{{numeroCuenta}}"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Movimientos",
+            "item": [
+                {
+                    "name": "Registrar Movimiento",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"numeroCuenta\": \"478758\",\n    \"tipoMovimiento\": \"RETIRO\",\n    \"valor\": 575\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8088/movimientos",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8088",
+                            "path": ["movimientos"]
+                        }
+                    }
+                },
+                {
+                    "name": "Obtener Estado de Cuenta",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8088/movimientos/reportes?clienteId=JL001&fechaInicio=2024-04-01T00:00:00&fechaFin=2024-04-30T23:59:59",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8088",
+                            "path": ["movimientos", "reportes"],
+                            "query": [
+                                {
+                                    "key": "clienteId",
+                                    "value": "JL001"
+                                },
+                                {
+                                    "key": "fechaInicio",
+                                    "value": "2024-04-01T00:00:00"
+                                },
+                                {
+                                    "key": "fechaFin",
+                                    "value": "2024-04-30T23:59:59"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Estado de Cuenta",
+            "item": [
+                {
+                    "name": "Obtener Estado de Cuenta",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8088/reportes/estado-cuenta?clienteId={{clienteId}}",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8088",
+                            "path": ["reportes", "estado-cuenta"],
+                            "query": [
+                                {
+                                    "key": "clienteId",
+                                    "value": "{{clienteId}}"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Movimientos Reportes",
+            "item": [
+                {
+                    "name": "Obtener Reporte de Movimientos",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8088/movimientos/reportes?clienteId={{clienteId}}&fechaInicio=2024-04-01T00:00:00&fechaFin=2024-04-30T23:59:59",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "8088",
+                            "path": ["movimientos", "reportes"],
+                            "query": [
+                                {
+                                    "key": "clienteId",
+                                    "value": "{{clienteId}}"
+                                },
+                                {
+                                    "key": "fechaInicio",
+                                    "value": "2024-04-01T00:00:00"
+                                },
+                                {
+                                    "key": "fechaFin",
+                                    "value": "2024-04-30T23:59:59"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }       
+    ]
+}

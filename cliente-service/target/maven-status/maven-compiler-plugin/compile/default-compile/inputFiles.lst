@@ -1,0 +1,16 @@
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\exception\GlobalExceptionHandler.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\exception\ErrorResponse.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\service\IClienteService.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\exception\ResourceNotFoundException.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\controller\ClienteController.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\config\ResilienceConfig.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\repository\ClienteRepository.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\dto\ClienteDTO.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\mapper\ClienteMapper.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\model\Persona.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\service\ClienteEventService.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\service\ClienteService.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\config\CacheConfig.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\exception\BadRequestException.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\ClienteServiceApplication.java
+C:\Users\sergi\CascadeProjects\banco-microservices\cliente-service\src\main\java\com\banco\cliente\model\Cliente.java

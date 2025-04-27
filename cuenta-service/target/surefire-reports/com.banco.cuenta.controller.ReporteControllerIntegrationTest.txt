@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.banco.cuenta.controller.ReporteControllerIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.57 s - in com.banco.cuenta.controller.ReporteControllerIntegrationTest

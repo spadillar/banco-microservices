@@ -1,0 +1,6 @@
+com\banco\cuenta\controller\MovimientoControllerIntegrationTest.class
+com\banco\cuenta\repository\CuentaRepositoryTest.class
+com\banco\cuenta\integration\MovimientoIntegrationTest.class
+com\banco\cuenta\controller\ReporteControllerIntegrationTest.class
+com\banco\cuenta\config\TestConfig.class
+com\banco\cuenta\repository\MovimientoRepositoryTest.class

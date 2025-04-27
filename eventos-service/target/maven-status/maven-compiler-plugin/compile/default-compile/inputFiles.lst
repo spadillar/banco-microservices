@@ -1,0 +1,5 @@
+C:\Users\sergi\CascadeProjects\banco-microservices\eventos-service\src\main\java\com\banco\eventos\channels\ClienteEventChannels.java
+C:\Users\sergi\CascadeProjects\banco-microservices\eventos-service\src\main\java\com\banco\eventos\channels\MovimientoEventChannels.java
+C:\Users\sergi\CascadeProjects\banco-microservices\eventos-service\src\main\java\com\banco\eventos\model\MovimientoCreatedEvent.java
+C:\Users\sergi\CascadeProjects\banco-microservices\eventos-service\src\main\java\com\banco\eventos\model\ClienteUpdatedEvent.java
+C:\Users\sergi\CascadeProjects\banco-microservices\eventos-service\src\main\java\com\banco\eventos\model\ClienteCreatedEvent.java

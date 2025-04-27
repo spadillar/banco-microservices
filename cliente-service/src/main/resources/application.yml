@@ -1,0 +1,93 @@
+server:
+  port: 8087
+  tomcat:
+    threads:
+      max: 200
+    max-connections: 10000
+    accept-count: 100
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+
+spring:
+  application:
+    name: cliente-service
+  cloud:
+    stream:
+      bindings:
+        cliente-created-out:
+          destination: cliente-created
+          content-type: application/json
+        cliente-updated-out:
+          destination: cliente-updated
+          content-type: application/json
+      default:
+        contentType: application/json
+        binder: rabbit
+  rabbitmq:
+    host: "${RABBITMQ_HOST:localhost}"
+    port: "${RABBITMQ_PORT:5672}"
+    username: "${RABBITMQ_USERNAME:guest}"
+    password: "${RABBITMQ_PASSWORD:guest}"
+  datasource:
+    url: "jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/banco_db"
+    username: "${POSTGRES_USER:postgres}"
+    password: "${POSTGRES_PASSWORD:postgres}"
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 300000
+      connection-timeout: 20000
+      max-lifetime: 1200000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+        generate_statistics: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  cache:
+    type: caffeine
+    cache-names: clientes,clientesById
+    caffeine:
+      spec: maximumSize=500,expireAfterAccess=600s
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      clienteService:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+  retry:
+    instances:
+      clienteService:
+        maxAttempts: 3
+        waitDuration: 1s
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
